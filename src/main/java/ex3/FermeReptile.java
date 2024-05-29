@@ -1,29 +1,22 @@
 package ex3;
+
 import java.util.List;
 
-public class FermeReptile {
+import ex3.enums.Type;
+import ex3.models.Animal;
+import ex3.models.Zone;
 
-	private List<String> types;
-	private List<String> noms;
-	private List<String> comportements;
-	
-	public void addAnimal(String typeAnimal, String nomAnimal, String comportement) {
-		types.add(typeAnimal);
-		noms.add(nomAnimal);
-		comportements.add(comportement);
+public class FermeReptile extends Zone {
+
+	public FermeReptile() {
+		super(10.0);
 	}
-	
-	public void afficherListeAnimaux(){
-		for (String nom: noms){
-			System.out.println(nom);
+
+	@Override
+	public void addAnimal(Animal animal) {
+		if (animal.getType().equals(Type.REPTILE.getType())) {
+			this.listeAnimaux.add(animal);
 		}
 	}
-	
-	public int compterAnimaux(){
-		return noms.size();
-	}
-	
-	public double calculerKgsNourritureParJour(){
-		return noms.size() * 0.1;
-	}
+
 }

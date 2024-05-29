@@ -5,15 +5,15 @@ import java.util.Date;
 
 public class DateUtils {
 
-	public static String format(String pattern, Date date) {
-		
-		SimpleDateFormat formateur = new SimpleDateFormat(pattern);
-		return formateur.format(date);
-	}
-	
-	public static String formatDefaut(Date date) {
-		
-		SimpleDateFormat formateur = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
+	/**
+	 * Formate une date en une chaine de caractère selon le format passe en
+	 * paramètre
+	 * 
+	 * @param date    la date à formater
+	 * @param pattern le format de la chaine de caractère (Optionnel)
+	 */
+	public static String format(Date date, String... pattern) {
+		SimpleDateFormat formateur = new SimpleDateFormat(pattern.length > 0 ? pattern[0] : "dd/MM/yyyy HH:mm:ss");
 		return formateur.format(date);
 	}
 }

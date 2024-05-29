@@ -1,25 +1,21 @@
 package ex3;
+
 import java.util.List;
 
-public class Aquarium {
+import ex3.enums.Type;
+import ex3.models.Animal;
+import ex3.models.Zone;
 
-	private List<String> types;
-	private List<String> noms;
-	private List<String> comportements;
-	
-	public void addAnimal(String typeAnimal, String nomAnimal, String comportement) {
-		types.add(typeAnimal);
-		noms.add(nomAnimal);
-		comportements.add(comportement);
+public class Aquarium extends Zone {
+
+	public Aquarium() {
+		super(3);
 	}
-	
-	public void afficherListeAnimaux(){
-		for (String nom: noms){
-			System.out.println(nom);
+
+	@Override
+	public void addAnimal(Animal animal) {
+		if (animal.getType().equals(Type.POISSON.getType())) {
+			this.listeAnimaux.add(animal);
 		}
-	}
-	
-	public double calculerKgsNourritureParJour(){
-		return noms.size() * 0.2;
 	}
 }

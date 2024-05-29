@@ -2,8 +2,20 @@ package ex2;
 
 public class LivretA extends CompteBancaire {
 
-	public LivretA(String type, double solde, double tauxRemuneration) {
-		super(type, solde, 0, tauxRemuneration);
+	/**
+	 * Constructeur
+	 * 
+	 * @param solde            - solde : solde du compte
+	 * @param tauxRemuneration - tauxRemuneration : taux de rémunération dans le cas
+	 *                         d'un livret A
+	 */
+	public LivretA(double solde, double tauxRemuneration) {
+		super(solde, null, tauxRemuneration);
+		this.type = "LA";
 	}
 
+	/** Calcule la régularisation du Livret A */
+	public void appliquerRemuAnnuelle() {
+		this.setSolde(this.getSolde() + this.getSolde() * this.getTauxRemuneration() / 100);
+	}
 }

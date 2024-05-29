@@ -1,5 +1,9 @@
-/bin/
+# Folder
+.vscode
+/.settings
 /target/
+/bin/
+
+# Files
 .classpath
 .project
-/.settings
